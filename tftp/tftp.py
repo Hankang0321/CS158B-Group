@@ -41,6 +41,7 @@ class TFTPServer:
         fd = None
         try:
             with ZipFile(zipfile) as z:
+                z = z.extractall();
                 fd = z.open("install/boot/" + name)
         except KeyError:
             pass # we'll try looking in the filesystem next
